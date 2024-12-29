@@ -11,6 +11,9 @@ router.get("/",(req,res)=>{
 router.post("/register",registerUser)
 router.post("/login",loginUser)
 router.post("/logout",logoutUser)
-
+router.get("/checkAuth",isLoggedIn,(req, res) => {
+    console.log("check auth function token checking :"+req.cookies.token)
+    res.status(200).send("Authenticated")
+});
 
 module.exports = router
