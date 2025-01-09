@@ -42,13 +42,9 @@ module.exports.registerUser = async (req, res) => {
           { email, userId: user._id },
           process.env.JWT_KEY
         );
-        console.log("token in regestered route :"+token)
+        // console.log("token in regestered route :"+token)
         // Set the cookie and send a success response
-        res.cookie("token", token, {
-          httpOnly: true, // Prevent JavaScript from accessing the cookie
-          secure: false,  // Use `true` if using HTTPS
-          sameSite: "lax", // Controls cookie sharing
-        });
+        res.cookie("token", token);
         return res.status(201).send("Registration successful"); // 201 Created
       });
     });
@@ -96,9 +92,17 @@ module.exports.loginUser = async (req, res) => {
         process.env.JWT_KEY
       );
 
+      // Exclude sensitive data like password from the user object
+      const userData = {
+        userName: user.userName,
+        email: user.email,
+        contact: user.contact,
+        _id: user._id, // Include only necessary fields
+      };
+      console.log(`User data is : `,userData)
       // Set the cookie and send a success response
-      res.cookie("token", token, { httpOnly: true });
-      return res.status(200).send("Login successful"); // 200 OK
+      res.cookie("token", token);
+      return res.status(200).send({ user: userData }); // Send clean user data
     });
   } catch (error) {
     console.error(error);
