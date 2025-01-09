@@ -14,7 +14,8 @@ const ProtectedRoute = ({ children }) => {
           const response = await axios.get("http://localhost:3000/checkAuth", {
             withCredentials: true, // Ensure cookies are sent with the request
           });
-          console.log(response.data)
+         const user =  response.data.user
+          console.log( ` the received user data : `,user)
           if (response.status === 200) {
             setIsAuthenticated(true);
           }

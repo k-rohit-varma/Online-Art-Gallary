@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
@@ -34,13 +34,13 @@ const Register = () => {
   return (
     <>
     <Navbar/>
-      <div className='text-black' >
+      <div className='text-white  p-10' >
       <form onSubmit={formSubmit}>
-        <input name='userName' type="text"  value={username} onChange={(e) => setUsername(e.target.value)} placeholder='Enter User name ' />
-        <input name='email' type="email"  value={email} onChange={(e) => setEmail(e.target.value)}  placeholder='Enter Email' />
-        <input name='password' type="password"  value={password} onChange={(e) => setPassword(e.target.value)}  placeholder='Enter Password' />
-        <input name='contact' type="number"  value={contact} onChange={(e) => setContact(e.target.value)}  placeholder='Enter Contact Number' />
-        <input className='text-white' type="submit" value="Submit" />
+        <input className='rounded p-3 mr-2 outline-none bg-zinc-700' name='userName' type="text"  value={username} onChange={(e) => setUsername(e.target.value)} placeholder='Enter User name ' />
+        <input  className='rounded p-3 mr-2 outline-none bg-zinc-700' name='email' type="email"  value={email} onChange={(e) => setEmail(e.target.value)}  placeholder='Enter Email' />
+        <input  className='rounded p-3 mr-2 outline-none bg-zinc-700' name='password' type="password"  value={password} onChange={(e) => setPassword(e.target.value)}  placeholder='Enter Password' />
+        <input  className='rounded p-3 mr-2 outline-none bg-zinc-700' name='contact' type="number"  value={contact} onChange={(e) => setContact(e.target.value)}  placeholder='Enter Contact Number' />
+        <input className='text-white bg-blue-500 px-5 py-3 rounded' type="submit" value="Submit" />
       </form>
     </div>
     </>

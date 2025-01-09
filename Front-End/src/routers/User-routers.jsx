@@ -7,9 +7,7 @@ import Logout from '../components/common/Logout'
 const Userrouters = () => {
   return (
     <div>
-         <Routes>
          
-         </Routes>
     </div>
   )
 }
